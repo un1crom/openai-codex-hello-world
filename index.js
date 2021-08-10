@@ -436,7 +436,7 @@ async function github(
 	console.log(files);
 	//set public to TRUE to go public with your Codex 
 	await octokit.request('POST /gists', {
-		public: false,
+		public: true,
 		files
 	});
 
