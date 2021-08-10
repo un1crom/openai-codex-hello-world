@@ -2,6 +2,9 @@
 
 This app is really simple.  It will eventually generate the space of all possible programs.
 
+## if you hate reading
+clone this repository and throw it in Replit or whatever nodejs environment you like.
+
 ### a preamble of sorts
 https://github.com/un1crom/openai-codex-hello-world/blob/master/concepts.md
 
