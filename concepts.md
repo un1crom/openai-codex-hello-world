@@ -32,7 +32,18 @@ If you try to do mathematics or computer algebra with Codex as you do as a human
 
 If you try to write language things with Codex as you do with your current tools or own brain you won't be productive.
 
-Use codex to merge these concepts into a new construct.
+Use CodeX to merge these concepts into a new construct. and new mode of construction.
 
 ## The Hyper Computation
 
+A CodeX Hyper Computation is one an activity where you can merge expressive modalities into one superposition object.
+
+A CodeX "session" is one a thinking/creating/searching session by which you can move between thinking, coding, calculating, authoring, poeticizing, visualizing, compiling, debugging, reconfiguring one, in any and all orders you want or see fit.
+
+Consider the main activity of CodeXing as flowing through ideas and branching off insights and interesting ideas as they cohere.  At no point is a CodeX Hyper Computation ever bounded or finalized.
+
+Unlike the programs of our previous computers where it is best for all involved to declare a state of doneness a CodeX app is ever evolving.  
+
+### Why? Why flow?  Why no boundary?
+
+Computers and computer programs that have only one inherent modality cannot remain open.  They require closure to be useful.  A Before-CodeX program could not generate its own input, output and context.  No before program could generate
