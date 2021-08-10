@@ -20,9 +20,16 @@ Basically...
 4. run code in virtual machine
 5. if errors process errors and generate a new seed to try to get running code
 6. keep iterating for number of max iterations
-7. if successful code then save code to github gists
+7. if successful code then save code to github gists (mine end up here: https://gist.github.com/un1crom)
+*8. as a bonus... you can use successful code via GIST urls as you build up a codebase.  it's all quite recursive and lovely.
+
+### "but what should i see?"
 
 your code and all the processing will output to console.
+
+all successful codex code will end up as a GIST on github as specified by your github PAT and the gist call you make.
+
+
 
 ## LANGUAGES SUPPORTED
 Javascript.  It is possible to do this for Python and other interactive languages but you have to create/instrument various virtual machines.  Javascript is the best for this because VMs are on server and in browser.
