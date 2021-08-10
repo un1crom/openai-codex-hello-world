@@ -46,4 +46,11 @@ Unlike the programs of our previous computers where it is best for all involved 
 
 ### Why? Why flow?  Why no boundary?
 
-Computers and computer programs that have only one inherent modality cannot remain open.  They require closure to be useful.  A Before-CodeX program could not generate its own input, output and context.  No before program could generate
+Computers and computer programs that have only one inherent modality cannot remain open.  They require closure to be useful.
+
+A Before-CodeX program could not generate its own input, output and context.  No before program could generate its opearting and value space.
+
+A Before-CodeX program could not generate its own data, own algorithms, own reasoning and use it to feed itself and navigate to new spaces.
+
+Everything is now grist for the mill.
+

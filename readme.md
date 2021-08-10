@@ -4,7 +4,7 @@ This app is really simple.  It will eventually generate the space of all possibl
 
 ## if you hate reading
 clone this repository and throw it in Replit or whatever nodejs environment you like.
-apply for codex beta at openai.com/c 
+apply for codex beta at openai.com/join
 
 *** note that you cannot go to production in the beta without a review.  this code is for learning and demostration.  it will be very thirsty for tokens so be sure you know what you're getting into :) and read the documentation here and at openai! ***
 
