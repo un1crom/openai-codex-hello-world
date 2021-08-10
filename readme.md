@@ -24,7 +24,7 @@ Basically...
 5. if errors process errors and generate a new seed to try to get running code
 6. keep iterating for number of max iterations
 7. if successful code then save code to github gists (mine end up here: https://gist.github.com/un1crom)
-*8. as a bonus... you can use successful code via GIST urls as you build up a codebase.  it's all quite recursive and lovely.
+8. as a bonus... you can use successful code via GIST urls as you build up a codebase.  it's all quite recursive and lovely.
 
 ### "but what should i see?"
 
