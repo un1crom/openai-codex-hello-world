@@ -19,7 +19,7 @@ Basically...
 your code and all the processing will output to console.
 
 ## LANGUAGES SUPPORTED
-Javascript.  It is possible to do this for Python and other interactive languages but you have you create/instrument various virtual machines.  Javascript is the best for this because VMs are on server and in browser.
+Javascript.  It is possible to do this for Python and other interactive languages but you have to create/instrument various virtual machines.  Javascript is the best for this because VMs are on server and in browser.
 
 ## Why Hello World?
 
