@@ -2,6 +2,9 @@
 
 This app is really simple.  It will eventually generate the space of all possible programs.
 
+### a preamble of sorts
+https://github.com/un1crom/openai-codex-hello-world/blob/master/concepts.md
+
 ## A Little More Detail
 Within this code and through integration with OpenAI API you can start generating, running and publishing to github OpenAI Codex generated code.
 
