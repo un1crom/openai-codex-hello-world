@@ -8,7 +8,7 @@ The current version uses OpenAI's `responses` API with the `o4-mini` model to ha
 clone this repository and throw it in Replit or whatever nodejs environment you like.
 apply for codex beta at openai.com/join
 
-*** note that you cannot go to production in the beta without a review.  this code is for learning and demostration.  it will be very thirsty for tokens so be sure you know what you're getting into :) and read the documentation here and at openai! ***
+*** note that you cannot go to production in the beta without a review.  this code is for learning and demonstration.  it will be very thirsty for tokens so be sure you know what you're getting into :) and read the documentation here and at openai! ***
 
 ### a preamble of sorts
 https://github.com/un1crom/openai-codex-hello-world/blob/master/concepts.md
