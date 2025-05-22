@@ -15,9 +15,10 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const axios = require('axios');
+const readline = require('readline');
 const apiKey = process.env['OPENAI_API_KEY'];
 const apiOrg = process.env['OPENAI_ORG'];
-const githubPAT = process.env['GITHUB_PAT']; // requires a github Personal Access Token - makes github API easier to use.
+let githubPAT = process.env['GITHUB_PAT']; // requires a github Personal Access Token - makes github API easier to use.
 const util = require('util'); // requires --expose_internals
 const { Octokit } = require('@octokit/rest');
 //generally useful stuff for processes
@@ -610,6 +611,22 @@ app.post('/', (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+function startServer() {
+  app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+  });
+}
+
+if (!githubPAT) {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  rl.question('Enter your GitHub Personal Access Token: ', token => {
+    githubPAT = token.trim();
+    rl.close();
+    startServer();
+  });
+} else {
+  startServer();
+}
