@@ -50,7 +50,7 @@ const util = require('util'); // requires --expose_internals
 
 const vm = require('vm');
 
-//Child Process for firing up more node kernals.
+//Child Process for firing up more node kernels.
 var childProcess = require('child_process');
 
 //this is a helper function to run generated code on a virtual machine.

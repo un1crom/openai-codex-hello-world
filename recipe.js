@@ -27,7 +27,7 @@ const { Octokit } = require('@octokit/rest');
 //https://nodejs.org/api/vm.html
 const vm = require('vm');
 
-//Child Process for firing up more node kernals.
+//Child Process for firing up more node kernels.
 var childProcess = require('child_process');
 
 function runScript(scriptPath, callback) {
