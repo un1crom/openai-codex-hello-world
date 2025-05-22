@@ -519,7 +519,7 @@ app.get('/', (req, res) => {
 });
 
 //main express funtion to accept post requests and kick of generations
-app.post('/', (req, res) => {
+app.post('/', async (req, res) => {
 	console.log(req.body.helloworld);
 	if (
 		req.body.helloworld !== null &&
@@ -532,13 +532,13 @@ app.post('/', (req, res) => {
 				'</textarea><br/><input type="submit" value="hello world!"></form>'
 		);
 
-		var cleanUpHello = req.body.helloworld.replace(/\r/g, '\n');
-		var typeOfSeed = search(cleanUpHello, 'curie', [
-			'app',
-			'algorithm',
-			'knowledge',
-			'advanced algorithm'
-		]);
+                var cleanUpHello = req.body.helloworld.replace(/\r/g, '\n');
+                var typeOfSeed = await search(cleanUpHello, 'curie', [
+                        'app',
+                        'algorithm',
+                        'knowledge',
+                        'advanced algorithm'
+                ]);
 		if (typeOfSeed == 'algorithm') {
 			codeXProxy(
 				'//' + cleanUpHello + '.\n',

@@ -542,7 +542,7 @@ function postit() {
 });
 
 //post
-app.post('/', (req, res) => {
+app.post('/', async (req, res) => {
   console.log(req.body.helloworld);
   if (
     req.body.helloworld !== null &&
@@ -556,7 +556,7 @@ app.post('/', (req, res) => {
     );
 
     var cleanUpHello = req.body.helloworld.replace(/\r/g, '\n');
-    var typeOfSeed = search(cleanUpHello, 'curie', [
+    var typeOfSeed = await search(cleanUpHello, 'curie', [
       'app',
       'algorithm',
       'knowledge',
