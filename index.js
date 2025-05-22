@@ -164,27 +164,37 @@ async function search(
 //GPT3 can be used to generate comments, read and interpret code and more.
 
 function gpt3(
-	codeSeed = '//write a nodejs javascript function to count to a number between 13 and 98.\n',
-	temp = 0.5,
-	tokens = 100,
-	tp = 1,
-	fp = 0.5,
-	pp = 0.5,
-	stopSequence = '});',
-	engine = 'davinci'
+        codeSeed = '//write a nodejs javascript function to count to a number between 13 and 98.\n',
+        temp = 0.5,
+        tokens = 100,
+        tp = 1,
+        fp = 0.5,
+        pp = 0.5,
+        stopSequence = '});',
+        engine = 'davinci'
 ) {
-	const endpoint =
-		'https://api.openai.com/v1/engines/' + engine + '/completions';
+        let endpoint;
+        let params;
+        if (engine === 'o4-mini') {
+                endpoint = 'https://api.openai.com/v1/responses';
+                params = {
+                        model: engine,
+                        input: codeSeed
+                };
+        } else {
+                endpoint =
+                        'https://api.openai.com/v1/engines/' + engine + '/completions';
 
-	const params = {
-		prompt: codeSeed,
-		temperature: temp,
-		max_tokens: tokens,
-		top_p: tp,
-		frequency_penalty: fp,
-		presence_penalty: pp,
-		stop: [stopSequence]
-	};
+                params = {
+                        prompt: codeSeed,
+                        temperature: temp,
+                        max_tokens: tokens,
+                        top_p: tp,
+                        frequency_penalty: fp,
+                        presence_penalty: pp,
+                        stop: [stopSequence]
+                };
+        }
 
 	client
 		.post(endpoint, params)
@@ -214,23 +224,33 @@ async function codeX(
 	fp = 0.5,
 	pp = 0.5,
 	stopSequence = '});',
-	engine = 'davinci-codex',
+        engine = 'o4-mini',
 	genAttempts = 5,
   defaultCode = "hello world!"
 ) {
 	console.log('the code seed is:' + codeSeed);
-	const endpoint =
-		'https://api.openai.com/v1/engines/' + engine + '/completions';
+        let endpoint;
+        let params;
+        if (engine === 'o4-mini') {
+                endpoint = 'https://api.openai.com/v1/responses';
+                params = {
+                        model: engine,
+                        input: codeSeed
+                };
+        } else {
+                endpoint =
+                        'https://api.openai.com/v1/engines/' + engine + '/completions';
 
-	const params = {
-		prompt: codeSeed,
-		temperature: temp,
-		max_tokens: tokens,
-		top_p: tp,
-		frequency_penalty: fp,
-		presence_penalty: pp,
-		stop: [stopSequence]
-	};
+                params = {
+                        prompt: codeSeed,
+                        temperature: temp,
+                        max_tokens: tokens,
+                        top_p: tp,
+                        frequency_penalty: fp,
+                        presence_penalty: pp,
+                        stop: [stopSequence]
+                };
+        }
 
 	/*test code for vm contexts
   const x = 1;
@@ -272,23 +292,25 @@ return new Promise((resolve, reject) => {
           //note that VM will not give access console in some super nice way...
 
           //
+                  let generatedText;
                   try {
-                    vm.runInContext(result.data.choices[0].text, context);
-                    //const paragraph = '//The quick brown fox jumps over the lazy dog. It barked.';
-                  const regex = /\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm;
-                  const found = result.data.choices[0].text.match(regex);
-                    console.log("COMMENTED LINE!" + found )
+                    generatedText =
+                      engine === 'o4-mini'
+                        ? (((result.data.output || [])[0] || {}).content || [])[0]?.text || ''
+                        : result.data.choices[0].text;
+                    vm.runInContext(generatedText, context);
+                    const regex = /\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm;
+                    const found = generatedText.match(regex);
+                    console.log('COMMENTED LINE!' + found);
                     console.log(JSON.stringify(context, undefined, 4));
                     console.log('call github');
                     github(
-                      params.prompt,
-                      result.data.choices[0].text,
+                      params.prompt || codeSeed,
+                      generatedText,
                       params,
                       JSON.stringify(context, undefined, 4)
                     );
-                    //spit out the code
-                    
-                        resolve(result.data.choices[0].text);
+                    resolve(generatedText);
 
 
 
@@ -321,7 +343,7 @@ return new Promise((resolve, reject) => {
                   }
 
           console.log('logging the code');
-          console.log(codeSeed + result.data.choices[0].text);
+          console.log(codeSeed + generatedText);
           // console.log(result.data);
         })
         .catch(err => {
@@ -454,7 +476,7 @@ async function codeXProxy(	codeSeed = '//using node make some stuff!',
 	fp = 0.5,
 	pp = 0.5,
 	stopSequence = '});',
-	engine = 'davinci-codex',
+        engine = 'o4-mini',
 	genAttempts = 5,
   defaultCode = "hello world!") {
 
@@ -496,8 +518,8 @@ app.get('/', (req, res) => {
 			1,
 			0.5,
 			0.5,
-			'COOKED',
-			'davinci-codex',
+                        'COOKED',
+                        'o4-mini',
 			5,
       "<blink>I tried</blink>"
 		);
@@ -510,8 +532,8 @@ app.get('/', (req, res) => {
 			1,
 			0.5,
 			0.5,
-			'});',
-			'davinci-codex',
+                        '});',
+                        'o4-mini',
 			5,
       "<blink>I did not try</blink>"
 		);
@@ -547,8 +569,8 @@ app.post('/', (req, res) => {
 				1,
 				0.2,
 				0.2,
-				'});',
-				'davinci-codex',
+                                '});',
+                                'o4-mini',
 				5,
          "<blink>I try</blink>"
 			);
@@ -560,8 +582,8 @@ app.post('/', (req, res) => {
 				1,
 				0.5,
 				0.5,
-				'});',
-				'davinci-codex',
+                                '});',
+                                'o4-mini',
 				5,
       "<blink>I did not try</blink>"
 			);
@@ -580,8 +602,8 @@ app.post('/', (req, res) => {
 			1,
 			0.5,
 			0.5,
-			'});',
-			'davinci-codex',
+                        '});',
+                        'o4-mini',
 			5,
       "<blink>I did try</blink>"
 		);
