@@ -2,6 +2,8 @@
 
 This app is really simple.  It will eventually generate the space of all possible programs.
 
+The current version uses OpenAI's `responses` API with the `o4-mini` model to handle code generation tasks.
+
 ## if you hate reading
 clone this repository and throw it in Replit or whatever nodejs environment you like.
 apply for codex beta at openai.com/join
