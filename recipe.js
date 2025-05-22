@@ -506,7 +506,7 @@ function postit() {
   );
   //console.log(req.query.helloworld);
   if (
-    !req.query.helloworld &&
+    req.query.helloworld &&
     typeof req.query.helloworld !== 'undefined' &&
     req.query.helloworld != 'undefined'
   ) {
