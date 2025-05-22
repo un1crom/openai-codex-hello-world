@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-    ,
+    "test": "jest",
     "cli": "node cli.js"
   },
   "keywords": [],
@@ -16,5 +15,9 @@
     "axios": "^0.21.1",
     "express": "^4.17.1",
     "internal": "^2.0.27"
+  },
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "supertest": "^6.3.3"
   }
 }
