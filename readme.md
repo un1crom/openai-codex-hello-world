@@ -35,8 +35,9 @@ your code and all the processing will output to console.
 all successful codex code will end up as a GIST on github as specified by your github PAT and the gist call you make.
 
 ## CLI Usage
+Use Node.js 22 or later (Node.js 24 LTS is recommended).
 If you prefer working in a terminal, you can run the generator without the Express server.
-First install dependencies with `npm install` and then run:
+First install the locked dependencies with `npm ci` and then run:
 
 ```bash
 npm run cli -- "//write a nodejs javascript function to say Hello from CLI"
@@ -44,6 +45,9 @@ npm run cli -- "//write a nodejs javascript function to say Hello from CLI"
 
 This will generate code using the provided seed, execute it locally and upload a Gist if `GITHUB_PAT` is set.
 
+Run `npm test` for the offline tests, which use Node.js's built-in test runner and
+local HTTP fixtures. No API credentials are needed. Run `npm audit` to check the
+locked dependencies for known vulnerabilities.
 
 
 ## LANGUAGES SUPPORTED
